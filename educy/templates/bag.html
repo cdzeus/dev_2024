@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tooplate's Little Fashion - FAQs Page</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}" />
+
+    <link
+      href="{% static 'css/tooplate-little-fashion.css'%}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'css/bag.css'%}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <section class="preloader">
+      <div class="spinner">
+        <span class="sk-inner-circle"></span>
+      </div>
+    </section>
+
+    <main>
+      {% include "components/nav-bar.html" %}
+
+      <header
+        class="site-header section-padding d-flex justify-content-center align-items-center"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-12">
+              <h1>
+                <span class="d-block text-primary">Complete your shopping</span>
+                <span class="d-block text-dark"
+                  >and we take care of the shipping</span
+                >
+              </h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="faq section-padding">
+        <div class="container">
+          <div class="product-list-head">
+            <p>Quantity</p>
+            <p>Name</p>
+            <p>Price</p>
+            <p>Image</p>
+            <p></p>
+          </div>
+          {% if user.username %} {% if products %} {% for product in products %}
+          <div class="product-list">
+            <p>{{ product.quantity }}</p>
+            <h3>{{ product.product_name }}</h3>
+            <h4>${{ product.product_price }}</h4>
+            <img
+              src="{% static 'images/product/'%}{{product.product_image}}"
+              alt=""
+            />
+            <form
+              action="{% url 'delete-bag-product' product.id %}"
+              method="POST"
+            >
+              {% csrf_token %}
+              <button class="btn-delete-bag" type="submit">
+                <div class="bi-trash"></div>
+              </button>
+            </form>
+          </div>
+          {% endfor %}
+          <div class="check-out">
+            <h3>Total = {{total}}$</h3>
+            <form action="">
+              <button class="btn-check-out" type="submit">Check out</button>
+            </form>
+          </div>
+          {% else %}
+          <h2>CHOOSE SOME PRODUCT!</h2>
+          {% endif %} {% else %}
+          <h2>YOU NEED TO SIGN IN TO SEE MORE !</h2>
+          {% endif %}
+        </div>
+      </section>
+    </main>
+
+    {% include "components/footer.html" %}
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="{% static 'js/jquery.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
+    <script src="{% static 'js/Headroom.js' %} "></script>
+    <script src="{% static 'js/jQuery.headroom.js' %} "></script>
+    <script src="{% static 'js/slick.min.js' %} "></script>
+    <script src="{% static 'js/custom.js' %} "></script>
+  </body>
+</html>

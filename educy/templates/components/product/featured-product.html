@@ -1,0 +1,55 @@
+{% load static %}
+
+<section class="featured-product section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="mb-5">Featured Products</h2>
+      </div>
+
+      {% if featured %} {% for product in featured %}
+      <div class="col-lg-4 col-12 mb-3">
+        <div class="product-thumb">
+          <a href="{% url 'product-detail' product.id %}">
+            <img
+              src="{% static 'images/product/'%}{{product.image}}"
+              class="img-fluid product-image"
+              alt=""
+            />
+          </a>
+
+          <div class="product-top d-flex">
+            <span class="product-alert me-auto">{{ product.type }}</span>
+
+            <a href="#" class="bi-heart-fill product-icon"></a>
+          </div>
+
+          <div class="product-info d-flex">
+            <div>
+              <h5 class="product-title mb-0">
+                <a
+                  href="{% url 'product-detail' product.id %}"
+                  class="product-title-link"
+                  >{{ product.name }}</a
+                >
+              </h5>
+
+              <p class="product-p">{{ product.description }}</p>
+            </div>
+
+            <small class="product-price text-muted ms-auto mt-auto mb-5"
+              >${{ product.price }}</small
+            >
+          </div>
+        </div>
+      </div>
+
+      {% endfor %} {% else %} {% include "components/product/not-found.html" %}
+      {% endif %}
+
+      <div class="col-12 text-center">
+        <a href="{% url 'products' %}" class="view-all">View All Products</a>
+      </div>
+    </div>
+  </div>
+</section>

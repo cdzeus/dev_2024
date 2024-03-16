@@ -1,0 +1,401 @@
+:root {
+  --white-color: #ffffff;
+  --primary-color: #ff0095;
+  --section-bg-color: #f0f8ff;
+  --dark-color: #000000;
+  --grey-color: #d0d1d1;
+  --dark-grey-color: #707070;
+  --p-color: #717275;
+  --danger-color: #e72962;
+
+  --body-font-family: "Inter", sans-serif;
+
+  --h5-font-size: 24px;
+  --p-font-size: 20px;
+  --copyright-text-font-size: 16px;
+  --product-link-font-size: 14px;
+  --custom-link-font-size: 12px;
+
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--white-color);
+  font-family: var(--body-font-family);
+  position: relative;
+}
+
+/*---------------------------------------
+    TYPOGRAPHY               
+  -----------------------------------------*/
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark-color);
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-bold);
+}
+
+h1,
+h2 {
+  font-weight: var(--font-weight-black);
+}
+
+h1 {
+  font-size: 64px;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 32px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 20px;
+}
+
+p {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+a,
+button {
+  touch-action: manipulation;
+  transition: all 0.3s;
+}
+
+a {
+  color: var(--p-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* ----------------- PROFILE STYLE -------------------- */
+
+* {
+  font-family: var(--body-font-family);
+}
+
+.profile-container {
+  width: 100vw;
+  display: flex;
+
+  padding: 44px;
+  flex-direction: column;
+}
+
+section {
+  background-color: var(--section-bg-color);
+}
+
+.profile-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  border-bottom: 1px solid var(--white-color);
+  padding-bottom: 24px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile div {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav-action {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 40%;
+  height: 40%;
+  background-color: var(--white-color);
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  margin: 10% auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content label {
+  font-size: 22px;
+  color: rgb(45, 46, 46);
+  font-weight: var(--font-weight-black);
+}
+.content span {
+  color: var(--p-color);
+  font-size: var(--p-font-size);
+  font-weight: var(--font-weight-light);
+}
+
+.user form button {
+  padding: 8px 12px;
+  background-color: var(--danger-color);
+  border-radius: 12px;
+  font-weight: var(--font-weight-bold);
+  color: var(--white-color);
+  border: none;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+.user-msg {
+  font-size: 16px;
+}
+
+.user span {
+  font-size: 18px;
+}
+
+.delete-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-section div p {
+  width: 75%;
+}
+.admin-container {
+  width: 100%;
+  min-height: 100vh;
+}
+.admin-container nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-container a button {
+  padding: 12px 20px 12px 12px;
+  background-color: var(--dark-color);
+  border: none;
+  color: var(--white-color);
+  font-size: var(--body-font-family);
+  font-weight: var(--font-weight-bold);
+  border-radius: 12px;
+  margin: 16px;
+}
+.admin-container a .btn-logout {
+  padding: 12px 20px 12px 12px;
+  background-color: var(--dark-grey-color);
+  color: var(--white-color);
+  font-size: var(--body-font-family);
+  border: none;
+  border-radius: 12px;
+  margin: 16px;
+}
+.admin-container a button:hover {
+  background-color: var(--primary-color);
+}
+.admin-container a .btn-logout:hover {
+  background-color: var(--grey-color);
+  color: var(--dark-color);
+}
+.admin-container a button span {
+  margin-left: 12px;
+}
+.admin-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.header-icon {
+  font-size: 32px;
+  font-weight: var(--font-weight-bold);
+}
+.header-icon:hover {
+  color: var(--primary-color);
+}
+.products {
+  width: 100%;
+}
+.products ul {
+  margin: 24px 0 0 8%;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  list-style: none;
+}
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.product {
+  position: relative;
+  width: 240px;
+  height: 280px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px var(--grey-color);
+  background: linear-gradient(rgba(117, 117, 117, 0), rgba(231, 45, 45, 0.5));
+}
+
+.product img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.product-name {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  font-size: 42px;
+  font-weight: var(--font-weight-black);
+  width: 100px;
+  line-height: 32px;
+}
+.product-description {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  width: 220px;
+  text-align: center;
+  color: var(--dark-grey-color);
+  margin: 10px auto;
+  line-height: 20px;
+}
+.product-type {
+  position: absolute;
+  z-index: 3;
+  bottom: 12px;
+  left: 12px;
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+}
+.product-price {
+  position: absolute;
+  z-index: 4;
+  bottom: 12px;
+  right: 12px;
+  font-size: 18px;
+  font-weight: var(--font-weight-black);
+  color: var(--white-color);
+}
+
+.product-action {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: -14px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.product-action button {
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete {
+  background-color: var(--danger-color);
+  color: var(--white-color);
+}
+.btn-delete:hover {
+  background-color: var(--primary-color);
+}
+
+.btn-update {
+  background-color: var(--dark-grey-color);
+  color: var(--white-color);
+}
+.btn-update:hover {
+  background-color: var(--primary-color);
+}
+
+.product-null {
+  width: 60%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 22%;
+  left: 22%;
+}

@@ -1,0 +1,73 @@
+{% load static %}
+
+<section class="admin-container">
+  <nav>
+    <div class="admin-header">
+      <div class="header-icon">
+        <a class="bi-house" href="{% url '' %}"></a>
+      </div>
+      <div>
+        <h2>Hello again <span>{{ user.username }}</span> !</h2>
+      </div>
+    </div>
+
+    <div class="nav-action">
+      <div>
+        <a href="{% url 'sign-out' %}">
+          <button class="bi-person custom-icon me-3 btn-logout">Logout</button>
+        </a>
+      </div>
+      <div>
+        <a href="{% url 'add-product' %}"
+          ><button class="bi-plus"><span>Add product</span></button></a
+        >
+      </div>
+    </div>
+  </nav>
+  <div class="products">
+    {% if products %}
+    <ul>
+      {% for product in products %}
+      <div class="productInfo">
+        <div>
+          <li class="product">
+            <div class="product-name">{{ product.name }}.</div>
+
+            <div class="product-price">${{ product.price }}</div>
+            <div class="product-type">{{ product.type }}</div>
+
+            {% if product.image %}
+            <img
+              src="{% static 'images/product/'%}{{product.image}}"
+              alt="{{ product.name }}"
+            />
+            {% endif %}
+            <div class="product-action">
+              <form
+                action="{% url 'delete-product' product.id %}"
+                method="POST"
+              >
+                {% csrf_token %}
+                <button class="btn-delete" type="submit">
+                  <div class="bi-trash"></div>
+                </button>
+              </form>
+              <form
+                action="{% url 'update-product' product.id %}"
+                method="POST"
+              >
+                {% csrf_token %}
+                <button class="btn-update" type="submit">
+                  <div class="bi-pen"></div>
+                </button>
+              </form>
+            </div>
+          </li>
+        </div>
+        <div class="product-description">{{ product.description }}</div>
+      </div>
+      {% endfor %}
+    </ul>
+    {% else %} {% include "components/product/not-found.html" %} {% endif %}
+  </div>
+</section>

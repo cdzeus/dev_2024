@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/add-product.css'%}" />
+    <title>Add Product</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ADD PRODUCT</h2>
+      <form class="form" method="post" enctype="multipart/form-data">
+        <div class="form-items">{% csrf_token %} {{ form.as_p}}</div>
+        <div>{% csrf_token %} {{ formImage }}</div>
+        <button type="submit">Add new product</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/add-product.css'%}" />
+    <title>Update Product</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>UPDATE PRODUCT</h2>
+      <form class="form" method="post">
+        <div class="form-items">{% csrf_token %} {{ form.as_p}}</div>
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </body>
+</html>

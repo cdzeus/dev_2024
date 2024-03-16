@@ -1,0 +1,70 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="index.html">
+      <strong><span>Little</span> Fashion</strong>
+    </a>
+
+    <div class="d-lg-none">
+      <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+      <a href="product-detail.html" class="bi-bag custom-icon"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url '' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">Story</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'faq' %}">FAQs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+      </ul>
+
+      <div class="d-none d-lg-block user">
+        <!--  -->
+
+        <a href="{% url 'bag' %}" class="bi-bag custom-icon"></a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}" class="user-info"> {{ user.username }}</a>
+        <a href="{% url 'profile' %}">
+          <img
+            class="user-img"
+            src="{% static 'images/slideshow/medium-shot-business-women-high-five.jpeg' %}"
+            class="img-fluid"
+            alt=""
+          />
+        </a>
+        {% else %}
+        <a href="{% url 'sign-in' %}" class="bi-person custom-icon me-3"></a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

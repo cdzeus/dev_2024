@@ -1,0 +1,21 @@
+<section class="content user">
+  <div>
+    <div><label>Username : </label> <span>{{ user.username}}</span></div>
+    <div>
+      <label>Member since : </label>
+      <span>{{ user.date_joined|date:"Y-m-d"}}</span>
+    </div>
+  </div>
+  <div class="delete-section">
+    <div>
+      <p class="user-msg">
+        If you have an issue or your account is not usefull for you ! You can
+        delete it !
+      </p>
+    </div>
+    <form action="{% url 'delete-my-account' user.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</section>

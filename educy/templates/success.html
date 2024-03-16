@@ -1,0 +1,10 @@
+{% load static %}
+
+<h2>Image uploaded successfully!</h2>
+<p>Image Name: {{ image_name }}</p>
+
+<img
+  src="{% static 'images/new-product/' %}{{ image_name }}"
+  class="img-fluid product-image"
+  alt=""
+/>
